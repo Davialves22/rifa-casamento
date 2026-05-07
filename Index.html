@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifa de Casamento - Juliana & Davi</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet">
+
+    <style>
+    body{
+      background: linear-gradient(135deg,#fff8f5,#fdf2f2);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+    }
+
+    .topo{
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .titulo{
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #8b5e3c;
+    }
+
+    .subtitulo{
+      letter-spacing: 5px;
+      font-weight: 600;
+      color: #5a3f2b;
+    }
+
+    .info{
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .pix{
+      color: #d62828;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .qr-container{
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    display: inline-block;
+  }
+
+  .qr-code{
+    max-width: 250px;
+    border-radius: 15px;
+    transition: 0.3s;
+  }
+
+  .qr-code:hover{
+    transform: scale(1.03);
+  }
+
+    .grid-rifa{
+      display: grid;
+      grid-template-columns: repeat(10,1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .numero{
+      height: 65px;
+      border-radius: 15px;
+      border: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .numero:hover{
+      transform: scale(1.06);
+    }
+
+    .disponivel{
+      background: linear-gradient(135deg,#28c76f,#20a958);
+      cursor: pointer;
+    }
+
+    .selecionado{
+      background: linear-gradient(135deg,#fcb045,#fd7e14);
+    }
+
+    .ocupado{
+      background: linear-gradient(135deg,#ff4d4d,#d90429);
+      cursor: not-allowed;
+    }
+
+    .painel{
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display: none;
+    }
+
+    .btn-whats{
+      background: #25d366;
+      border: none;
+      font-weight: bold;
+      padding: 15px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .btn-whats:hover{
+      background: #1ebe5d;
+      transform: scale(1.03);
+    }
+
+    .legenda{
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .item-legenda{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .cor{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+
+    .verde{
+      background: #28c76f;
+    }
+
+    .vermelho{
+      background: #ff4d4d;
+    }
+
+    footer{
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+      padding-bottom: 20px;
+    }
+
+    @media(max-width:768px){
+      .grid-rifa{
+        grid-template-columns: repeat(5,1fr);
+      }
+
+      .titulo{
+        font-size: 3rem;
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <div class="container py-5">
+
+      <div class="topo text-center">
+
+        <h1 class="titulo">Rifa de Casamento</h1>
+
+        <h3 class="subtitulo">JULIANA & DAVI</h3>
+
+        <p class="info mt-4">
+          100 números | <strong>R$ 10,00 cada</strong> |
+          Prêmio: <strong>R$ 200,00 via PIX</strong>
+        </p>
+
+        <p class="info">
+          Sorteio: Assim que todos os números forem preenchidos
+        </p>
+
+        <p class="pix">
+          Chave PIX: 711.310.174-71
+        </p>
+
+        <!-- QR CODE PIX -->
+        <div class="text-center">
+
+          <h4 class="mb-3 text-secondary">
+            Ou escaneie o QR Code PIX
+          </h4>
+
+          <div class="qr-container">
+
+            <!-- TROQUE PELO NOME DA SUA IMAGEM -->
+            <img
+              src="assets/qrcode.jpeg"
+              alt="QR Code PIX"
+              class="img-fluid qr-code">
+
+          </div>
+
+          <div class="painel" id="painelEscolha">
+
+            <h3 class="mb-3">
+              Número selecionado:
+              <span id="numeroSelecionado" class="text-warning"></span>
+            </h3>
+
+            <button class="btn btn-whats w-100 text-white mb-4"
+              onclick="enviarWhatsApp()">
+              Enviar no WhatsApp
+            </button>
+
+            <p class="mt-3 fw-bold text-danger">
+              PIX: 711.310.174-71
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="legenda">
+          <div class="item-legenda">
+            <div class="cor verde"></div>
+            Disponível
+          </div>
+
+          <div class="item-legenda">
+            <div class="cor vermelho"></div>
+            Ocupado
+          </div>
+        </div>
+
+        <div class="grid-rifa" id="gridRifa"></div>
+
+        <div class="painel" id="painelEscolha">
+
+          <h3 class="mb-3">
+            Número selecionado:
+            <span id="numeroSelecionado" class="text-warning"></span>
+          </h3>
+
+          <button class="btn btn-whats w-100 text-white"
+            onclick="enviarWhatsApp()">
+            Enviar no WhatsApp
+          </button>
+
+        </div>
+
+      </div>
+
+      <footer>
+        Para mais informações:
+        <br>
+        📞 81 97341-7256 |
+        📞 81 98774-4529
+      </footer>
+
+    </div>
+
+    <script>
+
+  // Números já ocupados (vermelhos)
+  const ocupados = [
+    1,3,4,7,8,9,
+    11,12,13,17,18,19,20,
+    25,26,27,
+    35,
+    46,
+    83
+  ];
+
+  const grid = document.getElementById("gridRifa");
+  const painel = document.getElementById("painelEscolha");
+  const numeroTexto = document.getElementById("numeroSelecionado");
+
+  let numeroSelecionado = null;
+
+  for(let i = 1; i <= 100; i++){
+
+    const btn = document.createElement("button");
+
+    btn.classList.add("numero");
+
+    btn.innerText = i;
+
+    if(ocupados.includes(i)){
+
+      btn.classList.add("ocupado");
+
+    }else{
+
+      btn.classList.add("disponivel");
+
+      btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".disponivel").forEach(el=>{
+          el.classList.remove("selecionado");
+        });
+
+        btn.classList.add("selecionado");
+
+        numeroSelecionado = i;
+
+        numeroTexto.innerText = i;
+
+        painel.style.display = "block";
+
+        painel.scrollIntoView({
+          behavior:"smooth"
+        });
+
+      });
+
+    }
+
+    grid.appendChild(btn);
+
+  }
+
+  function enviarWhatsApp(){
+
+    if(numeroSelecionado == null){
+      return;
+    }
+
+    // Seu número
+    const telefone = "+5581973417256";
+
+    const mensagem =
+`Olá! Tenho interesse no número ${numeroSelecionado} da Rifa de Casamento Juliana & Davi 🎉`;
+
+    const url =
+`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, "_blank");
+
+  }
+
+</script>
+
+  </body>
+</html>
