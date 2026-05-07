@@ -1,6 +1,6 @@
 // Números já ocupados (vermelhos)
 const ocupados = [
-  1, 3, 4, 7, 8, 9, 11, 12, 13, 17, 18, 19, 20, 25, 26, 27, 35, 46, 83,
+  1, 3, 4, 7, 8, 9, 11, 12, 13, 17, 18, 19, 20, 25, 26, 27, 35, 46, 83, 77, 91,
 ];
 
 const grid = document.getElementById("gridRifa");
