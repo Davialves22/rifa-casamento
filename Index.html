@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Rifa de Casamento - Juliana & Davi</title>
 
     <!-- Bootstrap -->
@@ -15,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
       rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
   </head>
@@ -30,8 +33,10 @@
         <h3 class="subtitulo">JULIANA & DAVI</h3>
 
         <p class="info mt-4">
-          100 números | <strong>R$ 10,00 cada</strong> |
-          Prêmio: <strong>R$ 200,00 via PIX</strong>
+          100 números |
+          <strong>R$ 10,00 cada</strong> |
+          Prêmio:
+          <strong>R$ 200,00 via PIX</strong>
         </p>
 
         <p class="info">
@@ -42,8 +47,8 @@
           Chave PIX: 711.310.174-71
         </p>
 
-        <!-- QR CODE PIX -->
-        <div class="text-center">
+        <!-- QR CODE -->
+        <div class="text-center mt-4">
 
           <h4 class="mb-3 text-secondary">
             Ou escaneie o QR Code PIX
@@ -51,7 +56,6 @@
 
           <div class="qr-container">
 
-            <!-- TROQUE PELO NOME DA SUA IMAGEM -->
             <img
               src="assets/qrcode.jpeg"
               alt="QR Code PIX"
@@ -59,27 +63,11 @@
 
           </div>
 
-          <div class="painel" id="painelEscolha">
-
-            <h3 class="mb-3">
-              Número selecionado:
-              <span id="numeroSelecionado" class="text-warning"></span>
-            </h3>
-
-            <button class="btn btn-whats w-100 text-white mb-4"
-              onclick="enviarWhatsApp()">
-              Enviar no WhatsApp
-            </button>
-
-            <p class="mt-3 fw-bold text-danger">
-              PIX: 711.310.174-71
-            </p>
-
-          </div>
-
         </div>
 
+        <!-- LEGENDA -->
         <div class="legenda">
+
           <div class="item-legenda">
             <div class="cor verde"></div>
             Disponível
@@ -89,10 +77,13 @@
             <div class="cor vermelho"></div>
             Ocupado
           </div>
+
         </div>
 
+        <!-- GRID DA RIFA -->
         <div class="grid-rifa" id="gridRifa"></div>
 
+        <!-- PAINEL -->
         <div class="painel" id="painelEscolha">
 
           <h3 class="mb-3">
@@ -100,25 +91,37 @@
             <span id="numeroSelecionado" class="text-warning"></span>
           </h3>
 
-          <button class="btn btn-whats w-100 text-white"
+          <button
+            class="btn btn-whats w-100 text-white mb-4"
             onclick="enviarWhatsApp()">
+
             Enviar no WhatsApp
+
           </button>
+
+          <p class="mt-3 fw-bold text-danger">
+            PIX: 711.310.174-71
+          </p>
 
         </div>
 
       </div>
 
+      <!-- RODAPÉ -->
       <footer class="mt-5 text-center text-secondary">
 
-        <h5
-          style="font-family: 'Great Vibes', cursive; font-size: 2rem; color:#8b5e3c;">
+        <h5 style="
+        font-family: 'Great Vibes', cursive;
+        font-size: 2rem;
+        color:#8b5e3c;">
+
           “Cada número comprado nos aproxima do nosso sonho.” ❤️
+
         </h5>
 
         <p class="mt-3">
-          Agradecemos de coração por fazer parte desse momento tão especial das
-          nossas vidas.
+          Agradecemos de coração por fazer parte desse momento tão especial
+          das nossas vidas.
         </p>
 
         <p class="fw-bold">
@@ -136,6 +139,9 @@
 
     </div>
 
+    <!-- JS -->
     <script src="script.js"></script>
+
   </body>
+
 </html>
